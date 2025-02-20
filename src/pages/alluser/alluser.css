@@ -1,0 +1,91 @@
+/* General Styles */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .user-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  /* Edit Button */
+  .edit-icon {
+    color: #009879;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .edit-icon:hover {
+    color: #005f56;
+  }
+  
+  /* Delete Button */
+  .delete-icon {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .delete-icon:hover {
+    color: darkred;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .user-table thead {
+      display: none;
+    }
+  
+    .user-table,
+    .user-table tbody,
+    .user-table tr,
+    .user-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .user-table tr {
+      margin-bottom: 10px;
+      border-bottom: 2px solid #009879;
+    }
+  
+    .user-table td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+    }
+  
+    .user-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  

@@ -1,0 +1,80 @@
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './productDet.css';
+import CountdownTimer from '../CountDownTimer/CountDown.jsx';
+import GetProductCat from '../GetProductByCategory/GetCateogryByCateogy.jsx';
+import { CartContext } from '../../context/cartContext.js';
+import toast from 'react-hot-toast';
+
+export default function ProductDet() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
+  const { id } = useParams();
+  const { addToCart, addtowishlist } = useContext(CartContext);
+
+  const addToCartNow = async (e, id) => {
+    e.preventDefault();
+    try {
+      const response = await addToCart(id);
+      toast.success('Item added to cart successfully!');
+    } catch (error) {
+      toast.error('Error adding to cart');
+      console.error('Error adding to cart:', error);
+    }
+  };
+
+  const addToWishList = async (e, id) => {
+    e.preventDefault();
+    try {
+      const response = await addtowishlist(id);
+      toast.success('Item added to wishlist successfully!');
+    } catch (error) {
+      toast.error('Error adding to wishlist');
+      console.error('Error adding to wishlist:', error);
+    }
+  };
+
+  async function getProductDet() {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(`http://localhost:5801/getproductDet/${id}`);
+      if (response.success) {
+        setData(response.data);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error('Error fetching product details:', error);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getProductDet();
+  }, [id]);
+
+  return (
+    <div className="product-details-container">
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <div className="product-details">
+          <div className="product-image">
+                 <img height={200} className='pointer' onClick={()=>setselected(i)} key={i} src={"http://localhost:5801/images/" + x} alt={`Product image ${i}`} />
+          </div>
+          <div className="product-info">
+            <h1>{data.name}</h1>
+            <p className="product-description">{data.description}</p>
+            <p className="product-price">Price: ${data.price}</p>
+            <CountdownTimer endTime={data.saleEndTime} />
+            <div className="action-buttons">
+              <button onClick={(e) => addToCartNow(e, id)}>Add to Cart</button>
+              <button onClick={(e) => addToWishList(e, id)}>Add to Wishlist</button>
+            </div>
+          </div>
+        </div>
+      )}
+      <GetProductCat heading={`top ${data.category}`} category={data.category} />
+    </div>
+  );
+}

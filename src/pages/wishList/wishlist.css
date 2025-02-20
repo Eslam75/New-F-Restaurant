@@ -1,0 +1,174 @@
+/* General styles for the cart container */
+.Wishlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 70vh;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.headerCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerCart h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.headerCart h1 {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Table styles */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.removeWish{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-table th,
+.cart-table td {
+  color: rebeccapurple;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.cart-table .imageNone img {
+  max-width: 50px;
+  border-radius: 5px;
+}
+
+.cart-table .imageNone button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.cart-table .imageNone button:hover {
+  background-color: #e03334;
+}
+.Actions{
+  display: flex;
+}
+.Actions button{
+  margin: 0 7px;
+  text-transform: capitalize;
+}
+
+/* Cart summary styles */
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-summary button:hover {
+  background-color: #45a049;
+}
+
+.cart-summary h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.cart-summary .cartSalary {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Empty cart message */
+.cart-container p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .headerCart {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .headerCart h2,
+  .headerCart h1 {
+    margin-bottom: 10px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .cart-table .imageNone img {
+    max-width: 40px;
+  }
+
+  .cart-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-summary button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-table .imageNone {
+    display: none;
+  }
+
+  .cart-table th:nth-child(1),
+  .cart-table td:nth-child(1) {
+    display: none;
+  }
+}

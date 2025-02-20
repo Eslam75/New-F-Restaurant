@@ -1,0 +1,62 @@
+/* تنسيق الحاوية الرئيسية */
+.checkout-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* العنوان */
+  .checkout-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* تنسيق المدخلات */
+  .checkout-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  /* زر إتمام الطلب */
+  .checkout-container button {
+    width: 100%;
+    padding: 12px;
+    background: #ff6f00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .checkout-container button:hover {
+    background: #e65c00;
+  }
+  
+  /* جعل الصفحة متجاوبة */
+  @media (max-width: 600px) {
+    .checkout-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .checkout-container h2 {
+      font-size: 20px;
+    }
+  
+    .checkout-container input,
+    .checkout-container button {
+      font-size: 14px;
+    }
+  }
+  

@@ -1,0 +1,64 @@
+/* تنسيق القسم الرئيسي */
+.category {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+/* حاوية الفئات */
+.containerCategory {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* تصميم متجاوب */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* تنسيق كل عنصر داخل الرابط */
+.LinkCategory {
+    text-decoration: none;
+}
+
+/* تنسيق العنصر الخاص بكل فئة */
+.categoryItem {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* عند تمرير الماوس */
+.categoryItem:hover {
+    transform: scale(1.05);
+    background-color: #5a0cae;
+}
+
+/* تنسيق الصورة */
+.categoryItem img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* تنسيق اسم الفئة */
+.categoryNa {
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+/* نص التحميل */
+.loadingText {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}

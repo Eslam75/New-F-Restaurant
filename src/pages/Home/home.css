@@ -1,0 +1,249 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .topRated{
+    width: 100%;
+    text-align: center;
+  }
+  
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ff5733;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .loaderText {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5733;
+  }
+  
+ /* Home Section */
+.Home {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container for the Home Page */
+.containerHome {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Layout and Text */
+.layoutHome {
+  position: absolute;
+  top: 0;
+  left: 7%;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  color: white;
+  z-index: 2;
+}
+
+/* Text Style */
+.textLayoutHome {
+  width: 40%;
+  font-size: 50px;
+  font-weight: bold;
+  font-size: 40px !important;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+/* Background Image */
+.containerHome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 1024px) {
+  .textLayoutHome {
+    width: 50%;
+    font-size: 36px;
+  }
+
+  .layoutHome {
+    left: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Home {
+    height: 60vh;
+  }
+
+  .textLayoutHome {
+    width: 80%;
+    font-size: 30px;
+  }
+.ParagraphHome{
+  font-size: 25px;
+}
+}
+
+@media (max-width: 480px) {
+  .Home {
+    height: 50vh;
+  }
+
+  .layoutHome {
+    left: 5%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .textLayoutHome {
+    width: 80%;
+    font-size: 22px;
+  }
+
+}
+
+
+/* RandomProduct */
+
+/* General Styles */
+/* Global Styles */
+
+/* Menu Grid Container RandomProduct */
+.menu-grid {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu-grid h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Grid Layout */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Menu Item */
+.menu-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Product Title */
+.menu-item-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Product Description */
+.menu-item-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Product Price */
+.menu-item-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff5733;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Button Container */
+.btn-Actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn-Actions button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  font-size: 14px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.btn-Actions button:hover {
+  background-color: #e04d2b;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+

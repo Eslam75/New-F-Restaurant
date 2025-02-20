@@ -1,0 +1,101 @@
+/* General styles */
+.Change {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.containerChange {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.headercontainerChange {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.changeUserRole {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.pointer {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    transition: 0.3s;
+}
+
+.pointer:hover {
+    color: #d63031;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.roleUser {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btnChange button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btnChange button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .containerChange {
+        width: 95%;
+    }
+    .changeUserRole {
+        font-size: 1.3rem;
+    }
+    select, .btnChange button {
+        font-size: 0.9rem;
+    }
+}

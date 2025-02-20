@@ -1,0 +1,54 @@
+/* Container Styling */
+.get-booking {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card Styling */
+.booking-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.booking-card:hover {
+  transform: scale(1.05);
+}
+
+/* Typography */
+.booking-card h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.booking-card p {
+  color: #555;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* No Bookings Message */
+.no-bookings {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .get-booking {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .booking-card {
+    width: 90%;
+  }
+}

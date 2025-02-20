@@ -1,0 +1,147 @@
+.NavPage {
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.containerNavPage {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-family: "Great Vibes", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.rightNavPage ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-transform: capitalize;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link li {
+  list-style: none;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover li {
+  color: #ffcc00;
+}
+
+.cart {
+  position: relative;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.cart .count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  color: white;
+  width: 20px;
+  height: 20px;
+  background-color: rebeccapurple;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-btn {
+  background-color: rebeccapurple;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.admin-btn:hover {
+  background-color: #6a0dad;
+}
+
+.auth-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.auth-btn.login {
+  background-color: green;
+  color: white;
+}
+
+.auth-btn.logout {
+  background-color: red;
+  color: white;
+}
+
+.auth-btn:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 910px) {
+  .NavPage{
+    z-index: 100;
+    position: fixed;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  .rightNavPage {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  .rightNavPage.active {
+    display: flex;
+  }
+
+  .rightNavPage ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
