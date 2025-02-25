@@ -60,7 +60,7 @@ export default function AddItem({ getAllproduct }) {
     image.forEach((img) => formData.append("image", img));
 
     try {
-      const response = await axios.post("http://localhost:5801/addproduct", formData);
+      const response = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/addproduct`, formData);
       if (response.data.success) {
         toast.success("Product added successfully!");
       }

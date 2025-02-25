@@ -9,6 +9,13 @@
     justify-content: center;
     padding: 1.5rem;
   }
+  .loading-spinner {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+  }
   
   .contact-title {
     font-size: 2rem;

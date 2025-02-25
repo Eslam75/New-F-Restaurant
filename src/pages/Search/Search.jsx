@@ -11,7 +11,7 @@ export default function Search() {
   const [loading, setloading] = useState(false)
   const query = useLocation()
   const [data, setdata] = useState([])
-  const url="http://localhost:5801"
+  const url=process.env.REACT_APP_FRONTEND_URL
   async function SearchProduct(){
   setloading(true)
   const respo=await fetch(url+"/search"+query.search,{method:"get"})

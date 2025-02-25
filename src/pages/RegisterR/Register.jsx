@@ -15,7 +15,7 @@ export default function RegisterGO() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5801/register", {
+      const res = await fetch(`${process.env.REACT_APP_FRONTEND_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,10 +84,7 @@ export default function RegisterGO() {
                   placeholder="Password"
                   required // Ensure input is mandatory
                 />
-                <i
-                  onClick={() => setshowpassword(false)}
-                  className="fa-solid fa-lock-open pointer"
-                ></i>
+              
               </>
             ) : (
               <>
@@ -101,10 +98,7 @@ export default function RegisterGO() {
                   placeholder="Password"
                   required // Ensure input is mandatory
                 />
-                <i
-                  onClick={() => setshowpassword(true)}
-                  className="fa-solid fa-lock pointer"
-                ></i>
+              
               </>
             )}
           </div>

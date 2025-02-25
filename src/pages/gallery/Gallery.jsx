@@ -10,7 +10,7 @@ export default function Gallery() {
 
     async function getAllProduct() {
         try {
-            const { data } = await axios.get("http://localhost:5801/getallproduct");
+            const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getallproduct`);
             setData(data.data);
             setFilteredData(data.data);
         } catch (error) {
@@ -78,7 +78,7 @@ export default function Gallery() {
                             whileHover={{ scale: 1.05 }}
                         >
                             <motion.img 
-                                src={item.image?.[0] ? `http://localhost:5801/images/${item.image[0]}` : "/placeholder.png"} 
+                                src={item.image?.[0] ? `${process.env.REACT_APP_FRONTEND_URL}/images/${item.image[0]}` : "/placeholder.png"} 
                                 alt="gallery-item" 
                                 className="product-image"
                                 whileHover={{ scale: 1.1 }}

@@ -8,7 +8,9 @@ export default function AllProducts() {
 
     const getAllProduct = async () => {
         try {
-            const { data } = await axios.get("http://localhost:5801/getallproduct");
+            // const { data } = await axios.get("http://localhost:5801/");
+            const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getallproduct`);
+
             console.log("AllProducts", data.data);
             setProducts(data.data);
         } catch (error) {
@@ -23,7 +25,7 @@ export default function AllProducts() {
 
 
   async  function deleteProduct(id){
-const {data}=await axios.delete(`http://localhost:5801/removeproduct/${id}`)
+const {data}=await axios.delete(`${process.env.REACT_APP_FRONTEND_URL}/removeproduct/${id}`)
 if(data.success){
     toast.success("Product deleted successfully");
     getAllProduct()
@@ -33,8 +35,9 @@ if(data.success){
         <div className='all-products-container'>
             {products?.map((product, i) => (
                 <div className='product-card' key={i}>
-                    <img src={`http://localhost:5801/images/${product.image[0]}`} alt={product.name} />
+                    <img src={`${process.env.REACT_APP_FRONTEND_URL}/images/${product.image[0]}`} alt={product.name} />
                     <h2>{product.name}</h2>
+                    <p>Price: ${product.price}</p>
                     <p>{product.desc || "No description available."}</p>
                     <p className='removeBtn' onClick={()=>deleteProduct(product._id)}>x</p>
                 </div>

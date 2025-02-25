@@ -24,6 +24,7 @@ import RestaurantBooking from './pages/RestaurantBooking/RestaurantBooking.jsx';
 import Alluser from './pages/alluser/alluser.jsx';
 import Checkout from './pages/CheckOut/CheckOut.jsx';
 import OrdersPage from './pages/orders/Order.jsx';
+import ProtectedRoute from './pages/protectedRoute/ProtectedRoute.jsx';
 
 
 export default function App() {
@@ -32,34 +33,34 @@ export default function App() {
   let routers=createBrowserRouter([
       {path:"",element:<Layout />,children:[
         
-      {path:"/",element:<Home /> },
-      {path:"/BookingForm",element:<BookingForm /> },
-      {path:"/GetBooking",element:<GetBooking /> },
+      {path:"/",element:<ProtectedRoute><Home /></ProtectedRoute> },
+      {path:"/BookingForm",element:<ProtectedRoute> <BookingForm /></ProtectedRoute>   },
      
-      {path:"/ProductsCat/:category",element:<ProductsCat /> },
+      {path:"/ProductsCat/:category",element:<ProtectedRoute><ProductsCat /></ProtectedRoute> },
       
       
-      {path:"/Checkout",element:<Checkout /> },
-      {path:"/ContactUs",element:<ContactUs /> },
-      {path:"/register",element:<RegisterGO /> },
-      {path:"/login",element: <Login />},
-      {path:"/Gallery",element: <Gallery />},
-      {path:"/ProductMenu",element: <ProductMenu />},
+      {path:"/Checkout",element:  <ProtectedRoute><Checkout /></ProtectedRoute>  },
+      {path:"/ContactUs",element:<ProtectedRoute> <ContactUs /></ProtectedRoute>   },
+      {path:"/register",element:  <RegisterGO /> },
+      {path:"/login",element:<Login /> },
+      {path:"/Gallery",element:<ProtectedRoute><Gallery /></ProtectedRoute> },
+      {path:"/ProductMenu",element:<ProtectedRoute><ProductMenu /></ProtectedRoute> },
       {path:"*",element: <Notfound/>},
       
  // cart
- {path:"/cart",element:<CartComponent /> },
- {path:"/WishList",element:<WshListiComponent /> },
- {path:"/RestaurantBooking",element:<RestaurantBooking /> },
+ {path:"/cart",element:<ProtectedRoute><CartComponent /></ProtectedRoute>    },
+ {path:"/WishList",element:<ProtectedRoute><WshListiComponent /></ProtectedRoute>   },
+ {path:"/RestaurantBooking",element:<ProtectedRoute><RestaurantBooking /></ProtectedRoute>   },
  
  
-      {path:"/admin-panel",element:<Adminpanel /> ,children:[
-        {path:"addItem",element:<AddItem /> },
-        {index:true,element:<AddItem /> },
-        {path:"alluser" ,element:<Alluser /> },
-        {path:"allproducts" ,element:<AllProducts /> },
-        {path:"allOrders" ,element:<OrdersPage /> },
-        
+      {path:"/admin-panel",element:<ProtectedRoute><Adminpanel /></ProtectedRoute>   ,children:[
+        {path:"addItem",element:<ProtectedRoute> <AddItem /></ProtectedRoute>  },
+        {index:true,element:<ProtectedRoute><AddItem /></ProtectedRoute>    },
+        {path:"alluser" ,element:<ProtectedRoute><Alluser /></ProtectedRoute>   },
+        {path:"allproducts" ,element:<ProtectedRoute><AllProducts /></ProtectedRoute>   },
+        {path:"allOrders" ,element:<ProtectedRoute><OrdersPage /></ProtectedRoute>   },
+        {path:"GetBooking",element:<ProtectedRoute><GetBooking /></ProtectedRoute>   },
+
         {index:true,element:<Alluser /> },
         
       ]},

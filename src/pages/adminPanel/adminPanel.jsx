@@ -18,6 +18,10 @@ export default function AdminPanel() {
             <li><Link to='alluser'><FaUsers /> All Users</Link></li>
             <li><Link to='allproducts'><FaBoxOpen /> All Products</Link></li>
             <li><Link to='allOrders'><FaClipboardList /> All Orders</Link></li>
+            <li><Link to='GetBooking'><FaClipboardList /> Booking</Link></li>
+
+
+         
           </ul>
         </nav>
       </aside>

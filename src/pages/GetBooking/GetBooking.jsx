@@ -9,7 +9,8 @@ export default function GetBooking() {
 
   async function GetAllBooking() {
     try {
-      const { data } = await axios.get("http://localhost:5801/getAllBooking");
+      const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getAllBooking`);
+
       if (data.success) {
         const validBookings = data.data.filter(booking => {
           const bookingDate = moment(booking.date, "YYYY-MM-DD");

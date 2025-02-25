@@ -49,10 +49,7 @@ export default function NavPage() {
             </Link>
             <Link to="/Gallery" className="nav-link" onClick={() => setMenuOpen(false)}>
               <li>Gallery</li>
-            </Link>
-            <Link to="/GetBooking" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <li>Booking</li>
-            </Link>
+            </Link> 
             <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
                 <FaCartArrowDown />

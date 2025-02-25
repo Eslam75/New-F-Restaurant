@@ -26,12 +26,12 @@ const Checkout = () => {
     console.log("عناصر السلة:", cart);
   
     if (!formData.name || !formData.address || !formData.phone) {
-      toast.warning("يرجى ملء جميع الحقول!");
+      toast.error("يرجى ملء جميع الحقول!");
       return;
     }
-  
+    
     if (cart.length === 0) {
-      toast.warning("السلة فارغة، لا يمكنك إتمام الطلب!");
+      toast.error("السلة فارغة، لا يمكنك إتمام الطلب!");
       return;
     }
   
@@ -41,7 +41,7 @@ const Checkout = () => {
     };
   
     try {
-      const { data } = await axios.post("http://localhost:5801/addOrder", orderData, {
+      const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/addOrder`, orderData, {
         headers: {
           token: localStorage.getItem("token"),
         },

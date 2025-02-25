@@ -63,16 +63,18 @@
 .btnProductCat button:hover {
     background: #d9534f;
 }
+.productName{
+    text-transform: capitalize;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .productByCat {
-        flex-direction: column;
-        align-items: center;
+    .dataCat {
+        width: 40%;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 630px) {
     .dataCat {
         width: 90%;
     }

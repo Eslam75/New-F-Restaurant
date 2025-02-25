@@ -10,10 +10,10 @@ export default function Footer() {
     <div className='footer-container'>
    <Link onClick={scrollTop} id='Link' to={"/"}> <h2 className='footer-logo'>LogoCorner</h2></Link>  
       <div className='footer-social'>
-        <FaFacebookF className='social-icon' />
-        <FaTwitter className='social-icon' />
-        <FaTripadvisor className='social-icon' />
-        <FaInstagram className='social-icon' />
+       <a href="https://www.facebook.com/"><FaFacebookF className='social-icon' /></a> 
+      <a href="https://x.com/home"> <FaTwitter className='social-icon' /></a> 
+      <a href=""> <FaTripadvisor className='social-icon' /></a> 
+     <a href="https://www.instagram.com/"><FaInstagram className='social-icon' /></a>   
       </div>
       <p className='footer-contact'>+123-456-7890</p>
       <p className='footer-email'>info@jalao.com</p>

@@ -8,7 +8,7 @@ export default function Category() {
 
     async function getCategories() {
         try {
-            const { data } = await axios.get("http://localhost:5801/getCategoryproduct");
+            const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getCategoryproduct`);
             if (data.success) {
                 setCategories(data.data);
             }
@@ -28,7 +28,7 @@ export default function Category() {
                     categories.map((item, index) => (
                         <Link className="LinkCategory" key={index} to={`/ProductsCat/${item.category}`}>
                             <div className="categoryItem">
-                                <img src={`http://localhost:5801/images/${item.image}`} alt={item.category} />
+                                <img src={`${process.env.REACT_APP_FRONTEND_URL}/images/${item.image}`} alt={item.category} />
                                 <h2 className="categoryNa">{item.category}</h2>
                             </div>
                         </Link>

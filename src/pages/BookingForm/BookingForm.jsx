@@ -21,7 +21,7 @@ const BookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5801/addBooking", formData, {
+      const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/addBooking`, formData, {
         headers: { "Content-Type": "application/json" },
       });
 

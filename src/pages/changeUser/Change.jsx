@@ -9,7 +9,7 @@ export default function Change({close, getUser,setclose ,nameUser,roleUser,email
     async function updateUser() {
         const respo= await   axios({
              method: 'post',
-             url:"http://localhost:5801/updateUser",
+             url:`${process.env.REACT_APP_FRONTEND_URL}/updateUser` ,
              headers: {}, 
              data: {
                 role:userRole,

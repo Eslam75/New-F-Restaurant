@@ -19,7 +19,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5801/login", formdata);
+      const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/login`, formdata);
       if (data.success) {
         localStorage.setItem("email", data.data.email);
         localStorage.setItem("address", data.data.address);

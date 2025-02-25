@@ -23,7 +23,7 @@ const addToCartNow = async (e, id) => {
 console.log("wishlist",wishlist)
 const removeFromwishlist = async (product) => {
   try {
-      const response = await axios.post('http://localhost:5801/deleteProductWishlist', {
+      const response = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/deleteProductWishlist`, {
           productId: product._id
       }, {
           headers: {
@@ -78,7 +78,7 @@ const removeFromwishlist = async (product) => {
 
 
                     <img
-                      src={`http://localhost:5801/images/${item.productId.image[0]}`}
+                      src={`${process.env.REACT_APP_FRONTEND_URL}/images/${item.productId.image[0]}`}
                       alt={item.productId.name}
                     />
                   </td>

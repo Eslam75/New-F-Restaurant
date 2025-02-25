@@ -37,7 +37,7 @@ export default function ProductDet() {
 
  async function getProductDet(){
     setLoading(true)
-    const {data}=await axios.get(`http://localhost:5801/getproductDet/${id}`)
+    const {data}=await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getproductDet/${id}`)
     if(data.success){
         setData(data.data)
         console.log("DATA IS ",Data)
@@ -58,7 +58,7 @@ export default function ProductDet() {
         </div>
 
         <div className="main-img">
-          <img src={"http://localhost:5801/images/" + (Data.image && Data.image[0])} alt="Main Product" />
+          <img src={`${process.env.REACT_APP_FRONTEND_URL}/images/`+(Data.image && Data.image[0])} alt="Main Product" />
         </div>
       </div>
 

@@ -13,7 +13,11 @@ export default function AllUser() {
   // Fetch all users
   const fetchAllUsers = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5801/getAllUser");
+      const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getAllUser`);
+      // const { data } = await  axios.get(`${process.env.REACT_APP_API_URL}/getAllUser`);
+console.log("users",data)
+console.log("API URL:", process.env.FRONTEND_URL);
+
       if (data.success) {
         setUsers(data.data);
       } else {

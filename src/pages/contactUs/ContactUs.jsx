@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import "./contactUs.css";
 
 const ContactUs = () => {
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="contact-container">
       <h1 className="contact-title">Contact Us</h1>
-      
+
       <div className="contact-card">
         <div className="contact-item">
           <FaMapMarkerAlt className="icon red" />
@@ -36,14 +38,16 @@ const ContactUs = () => {
         </div>
       </div>
 
-      {/* Google Maps Embed */}
+      {/* Google Maps Embed with Loading */}
       <div className="map-container">
+        {loading && <div className="loading-spinner">Loading Map...</div>}
         <iframe
           title="Google Maps"
           className="map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13806.7144555485!2d31.276462354847563!3d30.103389398299733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581560192b32cd%3A0x5e8a42b754cac3f0!2sAl%20Wayli%2C%20AZ%20Zaytoun%20Al%20Qebleyah%2C%20Amreya%2C%20Cairo%20Governorate%204510243!5e0!3m2!1sen!2seg!4v1739681833371!5m2!1sen!2seg"
           allowFullScreen=""
           loading="lazy"
+          onLoad={() => setLoading(false)}
         ></iframe>
       </div>
     </div>

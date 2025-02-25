@@ -11,7 +11,7 @@ const Location=useLocation()
 const navigate=useNavigate()
 const removeFromCart = async (product) => {
   try {
-    const response = await axios.post('http://localhost:5801/removeFromCart', {
+    const response = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/removeFromCart`, {
       productId: product._id
     }, {
       headers: {
@@ -47,7 +47,7 @@ const removeFromCart = async (product) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5801/updateCart', {
+      const response = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/updateCart`, {
         quantity: newQty,
         productId: product._id
       }, {

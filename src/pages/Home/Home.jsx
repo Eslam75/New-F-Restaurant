@@ -103,7 +103,7 @@ export default function Home() {
                 />
                 <h3 className="menu-item-title">{item.name}</h3>
                 <p className="menu-item-description">{item.desc}</p>
-                <span className="menu-item-price">${item.price}</span>
+                <span className="menu-item-price">{item.price}$</span>
                 <div className="btn-Actions">
                   <button onClick={(e) => addToCartNow(e,item._id)}>Add to Cart</button>
                   <button onClick={(e) => addToWishListNow(e,item._id)}>Add to Wishlist</button>

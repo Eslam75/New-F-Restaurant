@@ -9,7 +9,7 @@ const OrdersPage = () => {
   const [loading, setLoading] = useState(true);
   const fetchOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5801/orders");
+      const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/orders`);
       if (data.success) {
         setOrders(data.data);
       } else {
@@ -39,7 +39,7 @@ if(data.success){
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      const { data } = await axios.put(`http://localhost:5801/updatedOrder/${orderId}`, { status: newStatus });
+      const { data } = await axios.put(`${process.env.REACT_APP_FRONTEND_URL}/updatedOrder/${orderId}`, { status: newStatus });
       if (data.success) {
         toast.success("تم تحديث الحالة بنجاح");
         setOrders((prevOrders) =>
