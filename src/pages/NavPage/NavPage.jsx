@@ -51,7 +51,7 @@ export default function NavPage() {
           </Link>
         </div>
 
-{token?<div className="MiddleNav">
+{token?<>    <div className="MiddleNav">
         <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
                 <FaCartArrowDown />
@@ -64,18 +64,20 @@ export default function NavPage() {
                 {countWishlist > 0 && <span className="count">{countWishlist}</span>}
               </button>
             </Link>
-        </div>:   <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-}
-
+        </div>
 
         
-     
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button></>:null}
+
+        
+    
+
        
         <div className={`rightNavPage ${menuOpen ? "active" : ""}`}>
           <ul>
-            {token?<><Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+         {token?<>   <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
               <li>Home</li>
             </Link>
             <Link to="/ProductMenu" className="nav-link" onClick={() => setMenuOpen(false)}>
