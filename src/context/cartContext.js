@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
   // Fetch Cart
   const getCart = useCallback(async () => {
     try {
-      const { data } = await axios.get("http://localhost:5801/cart", {
+      const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/cart`, {
         headers: { token }
       });
       if (data.success) {
@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
   // Fetch Wishlist
   const getWishlist = useCallback(async () => {
     try {
-      const { data } = await axios.get("http://localhost:5801/getwishlist", {
+      const { data } = await axios.get(`${process.env.REACT_APP_FRONTEND_URL}/getwishlist`, {
         headers: { token }
       });
       if (data.success) {
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (productId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5801/addToCart",
+       `${process.env.REACT_APP_FRONTEND_URL}/addToCart`,
         { productId },
         { headers: { token } }
       );
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
   const addToWishlist = async (productId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5801/addToWishlist",
+        `${process.env.REACT_APP_FRONTEND_URL}/addToWishlist`,
         { productId },
         { headers: { token } }
       );
@@ -88,7 +88,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (productId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5801/removeproduct/${productId}`,
+        `${process.env.REACT_APP_FRONTEND_URL}/removeproduct/${productId}`,
         { headers: { token } }
       );
 
@@ -104,7 +104,7 @@ export const CartProvider = ({ children }) => {
   // Delete All Cart Items
   const deleteAllCartItems = async () => {
     try {
-      const { data } = await axios.delete("http://localhost:5801/deleteAllCartItems", {
+      const { data } = await axios.delete(`${process.env.REACT_APP_FRONTEND_URL}/deleteAllCartItems`, {
         headers: { token }
       });
 
