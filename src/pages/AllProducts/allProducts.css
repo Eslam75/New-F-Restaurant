@@ -55,6 +55,7 @@
   }
   
   /* Responsive Design */
+
   @media (max-width: 600px) {
     .all-products-container {
       flex-direction: column;

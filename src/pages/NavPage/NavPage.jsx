@@ -9,6 +9,8 @@ export default function NavPage() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -25,11 +27,27 @@ export default function NavPage() {
     }
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowNavbar(true);
+        document.querySelector(".NavPage").classList.add("fixed");
+      } else {
+        document.querySelector(".NavPage").classList.remove("fixed");
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="NavPage">
+    <nav className={`NavPage ${showNavbar ? "visible" : "hidden"}`}>
       <div className="containerNavPage">
         <div className="leftNavPage">
-          <Link to="/" className="logo">
+          <Link id="Link" to="/" className="logo">
             <h1>LogoCorner</h1>
           </Link>
         </div>
@@ -49,7 +67,7 @@ export default function NavPage() {
             </Link>
             <Link to="/Gallery" className="nav-link" onClick={() => setMenuOpen(false)}>
               <li>Gallery</li>
-            </Link> 
+            </Link>
             <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
                 <FaCartArrowDown />
@@ -67,12 +85,15 @@ export default function NavPage() {
                 <button className="admin-btn">Admin Panel</button>
               </Link>
             )}
-            <button className={`auth-btn ${isLoggedIn ? "logout" : "login"}`} onClick={handleAuth}>
+            {isLoggedIn?<Link to="/BookingForm" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <button className="book-table-btn">Book A Table</button>
+            </Link>:null}
+            <button className={`auth-btn ${isLoggedIn ? "logoutBtn" : "loginAuth"}`} onClick={handleAuth}>
               {isLoggedIn ? "Logout" : "Login"}
             </button>
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

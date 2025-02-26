@@ -3,6 +3,7 @@ import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function RegisterGO() {
+  const [Loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const [formdata, setformdata] = useState({
     username: "",
@@ -13,6 +14,7 @@ export default function RegisterGO() {
 
   // Form submission handler
   async function handleSubmit(e) {
+    setLoading(true)
     e.preventDefault();
     try {
       const res = await fetch(`${process.env.REACT_APP_FRONTEND_URL}/register`, {
@@ -25,6 +27,7 @@ export default function RegisterGO() {
       const data = await res.json();
 
       if (data.success) {
+        setLoading(false)
         navigate("/login"); // Navigate to login if registration succeeds
       } else {
         alert(data.message || "Registration failed!"); // Display message on error
@@ -112,7 +115,10 @@ export default function RegisterGO() {
           </span>
 
           {/* Submit Button */}
-          <button type="submit">Register</button>
+          
+          <button type="submit">
+            {Loading?"Loading...":"Register"}
+            </button>
         </form>
       </div>
     </div>

@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+const [Loading, setLoading] = useState(false)
   const [formdata, setformdata] = useState({
     email: "",
     password: "",
@@ -17,6 +17,7 @@ export default function Login() {
   const [showpassword, setshowpassword] = useState(false);
 
   async function handleSubmit(e) {
+    setLoading(true)
     e.preventDefault();
     try {
       const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/login`, formdata);
@@ -26,6 +27,8 @@ export default function Login() {
         localStorage.setItem("phone", data.data.phone);
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.data.role);
+        localStorage.setItem("justLoggedIn", "true");
+        setLoading(false)
            console.log(data.data.role)
         console.log("token is =<>", data.token);
         // Dispatch user details to Redux
@@ -108,7 +111,7 @@ export default function Login() {
           </span>
 
           {/* Submit Button */}
-          <button id="loginSubmit" type="submit">Login</button>
+          <button id="loginSubmit" type="submit">{Loading ? "Loading..." : "Login"}</button>
         </form>
       </div>
     </div>

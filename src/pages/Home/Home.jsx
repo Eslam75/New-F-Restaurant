@@ -18,34 +18,47 @@ const Loader = ({ progress }) => (
 );
 
 export default function Home() {
+  const { addToCart, addToWishlist } = useContext(CartContext);
 
-
-  const {addToCart,addToWishlist}=useContext(CartContext)
-
- async function addToCartNow(e,id){
-    e.preventDefault()
+  async function addToCartNow(e, id) {
+    e.preventDefault();
     try {
       const response = await addToCart(id);
-      console.log('Item added to cart:', response);
+      console.log("Item added to cart:", response);
     } catch (error) {
-      console.error('Error adding to cart:', error);
+      console.error("Error adding to cart:", error);
     }
- }
-
- async function addToWishListNow(e,id){
-  e.preventDefault()
-  try {
-    const response = await addToWishlist(id);
-    console.log('Item added to cart:', response);
-  } catch (error) {
-    console.error('Error adding to cart:', error);
   }
-}
+
+  async function addToWishListNow(e, id) {
+    e.preventDefault();
+    try {
+      const response = await addToWishlist(id);
+      console.log("Item added to wishlist:", response);
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  }
 
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(1);
 
   useEffect(() => {
+
+
+      if (localStorage.getItem("justLoggedIn") === "true") {
+        localStorage.removeItem("justLoggedIn");
+        setTimeout(() => {
+          window.location.reload();
+        }, 100); // تأخير بسيط لتجنب مشاكل إعادة التوجيه
+      }
+   
+
+
+
+
+
+
     let interval;
     if (loading) {
       interval = setInterval(() => {
@@ -61,6 +74,14 @@ export default function Home() {
     }
     return () => clearInterval(interval);
   }, [loading]);
+
+  // عمل refresh مرة واحدة بعد تسجيل الدخول
+  useEffect(() => {
+    if (localStorage.getItem("justLoggedIn") === "true") {
+      localStorage.removeItem("justLoggedIn");
+      window.location.reload();
+    }
+  }, []);
 
   return (
     <>
@@ -88,25 +109,25 @@ export default function Home() {
           </div>
         )}
       </div>
+
       <Gategory />
       <h1 className="topRated">Top Rated</h1>
 
-      <RandomProducts url="http://localhost:5801/getallproduct" limit={6}>
-      
+      <RandomProducts url={`${process.env.REACT_APP_FRONTEND_URL}/getallproduct`} limit={6}>
         {(products) => (
           <div className="menu-grid">
             {products.map((item) => (
               <div key={item._id} className="menu-item">
                 <img
-                  src={`http://localhost:5801/images/${item.image?.[0] || ""}`}
+                  src={`${process.env.REACT_APP_FRONTEND_URL}/images/${item.image?.[0] || ""}`}
                   alt={item.name}
                 />
                 <h3 className="menu-item-title">{item.name}</h3>
                 <p className="menu-item-description">{item.desc}</p>
                 <span className="menu-item-price">{item.price}$</span>
                 <div className="btn-Actions">
-                  <button onClick={(e) => addToCartNow(e,item._id)}>Add to Cart</button>
-                  <button onClick={(e) => addToWishListNow(e,item._id)}>Add to Wishlist</button>
+                  <button onClick={(e) => addToCartNow(e, item._id)}>Add to Cart</button>
+                  <button onClick={(e) => addToWishListNow(e, item._id)}>Add to Wishlist</button>
                 </div>
               </div>
             ))}
