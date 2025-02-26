@@ -10,10 +10,9 @@ export default function NavPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
 
@@ -51,7 +50,8 @@ export default function NavPage() {
             <h1>LogoCorner</h1>
           </Link>
         </div>
-        <div className="MiddleNav">
+
+{token?<div className="MiddleNav">
         <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
                 <FaCartArrowDown />
@@ -64,15 +64,18 @@ export default function NavPage() {
                 {countWishlist > 0 && <span className="count">{countWishlist}</span>}
               </button>
             </Link>
-        </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        </div>:   <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
+}
 
+
+        
+     
        
         <div className={`rightNavPage ${menuOpen ? "active" : ""}`}>
           <ul>
-            <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+            {token?<><Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
               <li>Home</li>
             </Link>
             <Link to="/ProductMenu" className="nav-link" onClick={() => setMenuOpen(false)}>
@@ -96,7 +99,7 @@ export default function NavPage() {
                 <FaHeart />
                 {countWishlist > 0 && <span className="count">{countWishlist}</span>}
               </button>
-            </Link>
+            </Link></>:null}
             {isLoggedIn && localStorage.getItem("role") === "admin" && (
               <Link to="/admin-panel" className="nav-link" onClick={() => setMenuOpen(false)}>
                 <button className="admin-btn">Admin Panel</button>
