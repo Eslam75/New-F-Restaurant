@@ -3,7 +3,7 @@ import axios from 'axios';
 export default async function getByCategoryFun(category) {
   try {
     const {data} = await axios.post(
-      "http://localhost:5801/getByCategory",
+      `${process.env.REACT_APP_FRONTEND_URL}/getByCategory`,
       { category }, // Corrected object structure
       {
         headers: {
