@@ -44,6 +44,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  z-index: -1;
 }
 
 /* Container for the Home Page */

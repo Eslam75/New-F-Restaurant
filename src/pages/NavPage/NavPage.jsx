@@ -51,9 +51,25 @@ export default function NavPage() {
             <h1>LogoCorner</h1>
           </Link>
         </div>
+        <div className="MiddleNav">
+        <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <button className="cart">
+                <FaCartArrowDown />
+                {countCart > 0 && <span className="count">{countCart}</span>}
+              </button>
+            </Link>
+            <Link to="/WishList" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <button className="cart">
+                <FaHeart />
+                {countWishlist > 0 && <span className="count">{countWishlist}</span>}
+              </button>
+            </Link>
+        </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
+
+       
         <div className={`rightNavPage ${menuOpen ? "active" : ""}`}>
           <ul>
             <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
@@ -68,7 +84,8 @@ export default function NavPage() {
             <Link to="/Gallery" className="nav-link" onClick={() => setMenuOpen(false)}>
               <li>Gallery</li>
             </Link>
-            <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
+
+             <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
                 <FaCartArrowDown />
                 {countCart > 0 && <span className="count">{countCart}</span>}

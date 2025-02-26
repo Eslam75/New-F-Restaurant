@@ -52,6 +52,9 @@
   font-size: 20px;
   cursor: pointer;
 }
+.MiddleNav{
+  display: none;
+}
 
 .count {
   position: absolute;
@@ -91,6 +94,9 @@
 }
 
 @media (max-width: 768px) {
+  .MiddleNav{
+    display: flex;
+  }
   .hamburger {
     display: block;
   }
