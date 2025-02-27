@@ -33,8 +33,11 @@ export default function GetBooking() {
 
   async function deleteBooking(bookingId) {
     try {
-      await axios.delete(`http://localhost:5801/deleteBooking/${bookingId}`);
-      toast.success("Booking deleted successfully.");
+     const {data}= await axios.delete(`${process.env.REACT_APP_FRONTEND_URL}/deleteBooking/${bookingId}`);
+   if(data.success){
+    toast.success("Booking deleted successfully.");
+    GetAllBooking();
+   }
     } catch (error) {
       console.error("Error deleting booking:", error);
     }
@@ -49,6 +52,7 @@ export default function GetBooking() {
       {bookings.length > 0 ? (
         bookings.map((booking, index) => (
           <div key={index} className="booking-card">
+            <button className="delete-button" onClick={() => deleteBooking(booking._id)}>x</button>
             <h2>{booking.name}</h2>
             <p>Email: {booking.email}</p>
             <p>Phone: {booking.phone}</p>
