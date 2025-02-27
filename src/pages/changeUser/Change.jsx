@@ -44,11 +44,11 @@ export default function Change({close, getUser,setclose ,nameUser,roleUser,email
     <p id='xxx' onClick={close}><i className="pointer fa-solid fa-x"></i></p>
 
   </div>
-    <p>name:{nameUser}</p>
-    <p>email :{emailUser}</p>
+    <p>Name:{nameUser}</p>
+    <p>Email :{emailUser}</p>
     <div className="roleUser">
         <div className="leftSideRole">
-        <p>role:{roleUser}</p>
+        <p>Role:{roleUser}</p>
         </div>
         <div className="rightSideRole">
             <select value={userRole} id='opselrole' onChange={handleChangeRole} >

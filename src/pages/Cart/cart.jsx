@@ -21,15 +21,13 @@ const removeFromCart = async (product) => {
 
     if (response.data.success) {
       toast.success(response.data.message);
-
-      if (cart.length === 1) {
-        getCart(); // تحديث البيانات من السيرفر
-      } else {
-        // تحديث الحالة محليًا لتجنب إعادة التحميل
-        const updatedCart = cart.filter(item => item._id !== product._id);
-        setCart(updatedCart);
-      }
-    } else {
+      getCart();
+    } 
+    
+    if(cart.length===0){
+      window.location.reload()
+    }
+    else {
       console.warn("Response indicates failure:", response.data);
     }
   } catch (error) {

@@ -32,7 +32,7 @@ console.log("API URL:", process.env.FRONTEND_URL);
   // Delete a user
   const handleDeleteUser = async (id) => {
     try {
-      const { data } = await axios.post("http://localhost:5801/deleteUser", {
+      const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/deleteUser`, {
         userId: id,
       });
       if (data.success) {
