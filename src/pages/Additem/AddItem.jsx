@@ -34,7 +34,6 @@ export default function AddItem({ getAllproduct }) {
     setPreview([]);
   };
 
-  // Generate preview URLs
   useEffect(() => {
     if (image.length > 0) {
       const objectUrls = image.map((img) => URL.createObjectURL(img));

@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [Errors, setErrors] = useState({})
 const [Loading, setLoading] = useState(false)
   const [formdata, setformdata] = useState({
     email: "",
@@ -16,9 +17,30 @@ const [Loading, setLoading] = useState(false)
   });
   const [showpassword, setshowpassword] = useState(false);
 
+  const validateForm = () => {
+    let newErrors = {};
+
+  
+
+    if (!formdata.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formdata.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!formdata.password.trim()) {
+      newErrors.password = "Password is required";
+    } else if (formdata.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Returns true if no errors
+  };
   async function handleSubmit(e) {
     setLoading(true)
     e.preventDefault();
+    if (!validateForm()) return; // Stop if validation fails
     try {
       const { data } = await axios.post(`${process.env.REACT_APP_FRONTEND_URL}/login`, formdata);
       if (data.success) {
@@ -61,6 +83,8 @@ const [Loading, setLoading] = useState(false)
               placeholder="Email"
               required // Ensure mandatory input
             />
+                        {Errors.email && <p className="error">{Errors.email}</p>}
+
           </div>
 
           {/* Password Input */}
@@ -100,6 +124,9 @@ const [Loading, setLoading] = useState(false)
                 ></i>
               </>
             )}
+
+{Errors.password && <p className="error">{Errors.password}</p>}
+
           </div>
 
           {/* Redirect to Register */}

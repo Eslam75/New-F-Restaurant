@@ -23,5 +23,10 @@ code {
 #Link{
   text-decoration: none;
   color: white;
+}
 
+.error{
+  background-color: red;
+  color: white;
+  padding: 10px;
 }
