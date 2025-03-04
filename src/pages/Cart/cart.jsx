@@ -97,7 +97,7 @@ const removeFromCart = async (product) => {
                   <td className="imageNone">
                     {item.productId && item.productId.image && item.productId.image[0] ? (
                       <img
-                        src={`http://localhost:5801/images/${item.productId.image[0]}`}
+                        src={`${process.env.REACT_APP_FRONTEND_URL}/images/${item.productId.image[0]}`}
                         alt={item.productId.name}
                       />
                     ) : (
