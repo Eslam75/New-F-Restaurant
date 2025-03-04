@@ -1,10 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./menu.css";
+import { CartContext } from "../../context/cartContext";
 
 export default function Menu({ heading, category }) {
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true); // حالة التحميل
+  const { addToCart, addToWishlist } = useContext(CartContext);
+
+  async function addToCartNow(e, id) {
+    e.preventDefault();
+    try {
+      const response = await addToCart(id);
+      console.log("Item added to cart:", response);
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  }
+
+  async function addToWishListNow(e, id) {
+    e.preventDefault();
+    try {
+      const response = await addToWishlist(id);
+      console.log("Item added to wishlist:", response);
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  }
 
   const getAllProduct = async () => {
     try {
@@ -50,6 +72,10 @@ export default function Menu({ heading, category }) {
                   <p className="menu-item-description">{item.desc}</p>
                 </div>
                 <span className="menu-item-price">{item.price}$</span>
+                <div className="btn-Actions">
+                  <button onClick={(e) => addToCartNow(e, item._id)}>Add to My Meal</button>
+                  <button onClick={(e) => addToWishListNow(e, item._id)}>Favourite Meal</button>
+                </div>
               </div>
             )
           )}

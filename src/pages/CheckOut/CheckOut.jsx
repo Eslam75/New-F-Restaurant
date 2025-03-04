@@ -35,7 +35,7 @@ const Checkout = () => {
   
     // Validate Egyptian phone number format
     if (!/^01[0-25]\d{8}$/.test(trimmedPhone)) {
-      toast.error("رقم الهاتف غير صحيح! يجب أن يكون رقمًا مصريًا مكونًا من 11 رقمًا.");
+      toast.error("It must be an 11-digit Egyptian number.");
       return false;
     }
   
@@ -53,7 +53,6 @@ const Checkout = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    validateForm(); // تحقق بعد كل تغيير
 
   };
 

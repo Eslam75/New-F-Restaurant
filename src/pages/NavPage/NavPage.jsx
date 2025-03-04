@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaCartArrowDown, FaHeart, FaBars, FaTimes } from "react-icons/fa";
+import { FaHeart, FaBars, FaTimes } from "react-icons/fa";
 import { CartContext } from "../../context/cartContext";
 import "./NavPage.css";
+import { FaMotorcycle } from "react-icons/fa6";
 
 export default function NavPage() {
   const { countCart, countWishlist } = useContext(CartContext);
@@ -54,7 +55,7 @@ export default function NavPage() {
 {token?<>    <div className="MiddleNav">
         <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
-                <FaCartArrowDown />
+                <FaMotorcycle />
                 {countCart > 0 && <span className="count">{countCart}</span>}
               </button>
             </Link>
@@ -92,7 +93,7 @@ export default function NavPage() {
 
              <Link to="/cart" className="nav-link" onClick={() => setMenuOpen(false)}>
               <button className="cart">
-                <FaCartArrowDown />
+                <FaMotorcycle />
                 {countCart > 0 && <span className="count">{countCart}</span>}
               </button>
             </Link>
